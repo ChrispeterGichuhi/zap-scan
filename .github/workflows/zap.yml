@@ -1,0 +1,15 @@
+name: ZAP Scan
+on: workflow_dispatch
+permissions:
+  contents: read
+  issues: write
+jobs:
+  zap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ZAP Full Scan
+        uses: zaproxy/action-full-scan@v0.12.0
+        with:
+          target: 'http://www.itsecgames.com'
+          allow_issue_writing: false
+          cmd_options: '-a'
